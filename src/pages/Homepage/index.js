@@ -9,7 +9,7 @@ import Layout from 'components/Layout';
 const Homepage = () => (
   <div className="root">
     <Layout>
-      <h1>Homepage</h1>
+      <h1 className="mb-8">Homepage</h1>
     </Layout>
   </div>
 );

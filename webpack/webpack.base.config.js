@@ -5,6 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -65,7 +66,7 @@ module.exports = (options) => ({
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         // Preprocess 3rd party .css files located in node_modules
@@ -147,6 +148,10 @@ module.exports = (options) => ({
       NODE_ENV: 'development',
     }),
     new webpack.DefinePlugin(envKeys),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+      chunkFilename: 'styles.css',
+    }),
     new CopyPlugin({
       patterns: [{ from: 'src/assets/.htaccess', to: '' }],
     }),
