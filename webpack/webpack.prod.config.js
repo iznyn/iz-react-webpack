@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const OfflinePlugin = require('@lcdp/offline-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 //
 // Setup .env
@@ -47,6 +48,9 @@ module.exports = require('./webpack.base.config')({
   },
 
   plugins: [
+    new CopyPlugin({
+      patterns: [{ from: 'src/assets/images/favicon.png', to: '' }],
+    }),
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -69,7 +73,7 @@ module.exports = require('./webpack.base.config')({
     // assets manipulations and do leak its manipulations to HtmlWebpackPlugin
     new OfflinePlugin({
       relativePaths: false,
-      publicPath: env.BASENAME,
+      publicPath: env.APP_BASENAME,
       appShell: '/',
       responseStrategy: 'network-first',
 
@@ -98,9 +102,9 @@ module.exports = require('./webpack.base.config')({
     }),
 
     new WebpackPwaManifest({
-      name: 'PVP ESports',
-      short_name: 'PVP ESports',
-      description: 'PVP ESports',
+      name: 'My Site',
+      short_name: 'My Site',
+      description: 'My Site',
       background_color: '#fafafa',
       theme_color: '#b1624d',
       inject: true,
@@ -120,7 +124,7 @@ module.exports = require('./webpack.base.config')({
   ],
 
   performance: {
-    assetFilter: assetFilename =>
+    assetFilter: (assetFilename) =>
       !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
   },
 });

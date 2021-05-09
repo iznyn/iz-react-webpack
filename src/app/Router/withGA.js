@@ -11,7 +11,7 @@ import ReactGA from 'react-ga';
 ReactGA.initialize('UA-123456789-1');
 
 export default (WrappedComponent, options = {}) => {
-  const trackPage = page => {
+  const trackPage = (page) => {
     ReactGA.set({
       page,
       ...options,
@@ -19,11 +19,10 @@ export default (WrappedComponent, options = {}) => {
     ReactGA.pageview(page);
   };
 
-  const HOC = props => {
-    useEffect(() => trackPage(props.location.pathname), [
-      // eslint-disable-next-line react/prop-types
-      props.location.pathname,
-    ]);
+  const HOC = (props) => {
+    // eslint-disable-next-line react/prop-types
+    const { pathname } = props.location;
+    useEffect(() => trackPage(pathname), [pathname]);
 
     return <WrappedComponent {...props} />;
   };

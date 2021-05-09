@@ -4,18 +4,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import useStyles from './styles';
 
 const Container = ({ children, size, className, ...others }) => {
-  const classes = useStyles();
-  let sizeClasses = classes.full;
-  if (classes[size] !== undefined) {
-    sizeClasses = classes[size];
-  }
+  // let sizeClasses = classes.full;
+  // if (classes[size] !== undefined) {
+  //   sizeClasses = classes[size];
+  // }
+  const sizeClasses = `container--${size}`;
 
   return (
     <div
-      className={classNames(classes.root, sizeClasses, className)}
+      className={classNames('container', sizeClasses, className)}
       {...others}
     >
       {children}

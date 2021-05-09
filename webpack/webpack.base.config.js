@@ -4,6 +4,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -22,21 +23,28 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
   return prev;
 }, {});
 
-module.exports = options => ({
+module.exports = (options) => ({
   mode: options.mode,
   entry: [
     require.resolve('react-app-polyfill/ie11'),
     path.join(process.cwd(), 'src/index.js'),
   ],
+  // eslint-disable-next-line prefer-object-spread
   output: Object.assign(
     {
       // Compile into js/build.js
       path: path.resolve(process.cwd(), 'build'),
-      publicPath: env.BASENAME,
+      publicPath: env.APP_BASENAME,
     },
     options.output,
   ), // Merge with env dependent settings
   optimization: options.optimization,
+  devServer: {
+    port: env.SERVER_PORT || 3000,
+    contentBase: path.resolve(process.cwd(), 'build'),
+    compress: true,
+    clientLogLevel: 'silent',
+  },
   module: {
     rules: [
       {
@@ -139,6 +147,9 @@ module.exports = options => ({
       NODE_ENV: 'development',
     }),
     new webpack.DefinePlugin(envKeys),
+    new CopyPlugin({
+      patterns: [{ from: 'src/assets/.htaccess', to: '' }],
+    }),
     // Ignore all locale files of moment.js
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ]),

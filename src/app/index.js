@@ -3,8 +3,7 @@
  *
  */
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { withRouter } from 'react-router';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
 import { Http } from 'services/http';
 import Main from './Main';
@@ -13,11 +12,11 @@ import Main from './Main';
 Http.init();
 
 const App = () => (
-  <BrowserRouter basename={process.env.BASENAME}>
+  <BrowserRouter basename={process.env.APP_BASENAME}>
     <Switch>
-      <Route component={Main} />
+      <Main />
     </Switch>
   </BrowserRouter>
 );
 
-export default withRouter(App);
+export default App;

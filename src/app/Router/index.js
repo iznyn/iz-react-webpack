@@ -5,6 +5,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { Switch, Route, useLocation } from 'react-router-dom';
 
+import NotFoundPage from 'pages/NotFound';
 import withGA from './withGA';
 import Config from './Config';
 import Private from './Private';
@@ -38,7 +39,7 @@ const MainRouter = () => {
   return (
     <div>
       <Switch location={isModal ? background : location}>
-        {routeItems.map(route => {
+        {routeItems.map((route) => {
           const { name, modalSupport } = route;
           if (modalSupport && isModal && modal === name) {
             return null;

@@ -5,12 +5,10 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { size as settings } from './settings';
-import useStyles from './styles';
 
 const ContainerSide = ({ children, size, side, className, ...others }) => {
   const [paddingLeft, setPaddingLeft] = useState(0);
   const [paddingRight, setPaddingRight] = useState(0);
-  const classes = useStyles();
 
   const changeSideSize = () => {
     const winWidth = window.innerWidth;
@@ -50,7 +48,7 @@ const ContainerSide = ({ children, size, side, className, ...others }) => {
 
   return (
     <div
-      className={classNames(classes.root, className)}
+      className={classNames('container__side', className)}
       style={{
         paddingLeft,
         paddingRight,
