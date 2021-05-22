@@ -6,6 +6,9 @@ import ReactDOM from 'react-dom';
 
 import App from './app/index';
 
+// Import styles
+import './styles/styles.scss';
+
 // Main APP init
 ReactDOM.render(<App />, document.getElementById('app'));
 
