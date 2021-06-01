@@ -59,7 +59,9 @@ const ModalAlert = (props) => {
           <Button
             label={buttonLabel}
             variant={variant}
-            onClick={(evt) => {
+            radius="lg"
+            loading
+            handler={(evt) => {
               evt.preventDefault();
               if (buttonAction) {
                 buttonAction();
@@ -75,14 +77,14 @@ const ModalAlert = (props) => {
 };
 
 ModalAlert.defaultProps = {
-  variant: 'default',
+  variant: 'gray',
   buttonLabel: 'Ok',
 };
 
 ModalAlert.propTypes = {
   open: PropTypes.bool.isRequired,
   variant: PropTypes.oneOf([
-    'default',
+    'gray',
     'primary',
     'success',
     'warning',

@@ -8,27 +8,31 @@
   --sk-color: #aaaaaa;
 
   &--xxs {
-    --sk-size: 10px;
+    --sk-size: 8px;
   }
 
   &--xs {
-    --sk-size: 20px;
+    --sk-size: 12px;
   }
 
   &--sm {
-    --sk-size: 30px;
+    --sk-size: 18px;
+  }
+
+  &--md {
+    --sk-size: 24px;
   }
 
   &--lg {
-    --sk-size: 50px;
+    --sk-size: 36px;
   }
 
   &--xl {
-    --sk-size: 60px;
+    --sk-size: 48px;
   }
 
   &--xxl {
-    --sk-size: 80px;
+    --sk-size: 70px;
   }
 
   // Coloring

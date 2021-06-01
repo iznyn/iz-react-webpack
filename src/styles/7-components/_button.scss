@@ -1,1 +1,42 @@
 //- 7-components/button
+
+.button {
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+
+  //
+  // Size
+  &--md {
+    padding: 1.2rem 3rem;
+  }
+  &--xxs {
+    padding: 0.7rem 1.4rem;
+  }
+  &--xs {
+    padding: 0.8rem 1.8rem;
+  }
+  &--sm {
+    padding: 1rem 2.4rem;
+  }
+  &--lg {
+    padding: 1.4rem 3.4rem;
+  }
+  &--xl {
+    padding: 1.6rem 3.8rem;
+  }
+  &--xxl {
+    padding: 1.8rem 4.2rem;
+  }
+
+  //
+  // Loader
+  &__loader {
+    .spinner {
+      --sk-color: #ffffff;
+    }
+  }
+}
