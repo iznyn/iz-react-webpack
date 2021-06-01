@@ -3,10 +3,11 @@
  */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { MdClose } from 'react-icons/md';
 
-const Modal = ({ open, children, showClose, onClose, className }) => {
+import Base from './Base';
+
+const Modal = ({ open, children, showClose, onClose, ...others }) => {
   const [visibility, setVisibility] = useState(false);
 
   useEffect(() => {
@@ -18,12 +19,8 @@ const Modal = ({ open, children, showClose, onClose, className }) => {
   }, [open]);
 
   return (
-    <div
-      className={classNames('modal', className)}
-      data-state={visibility ? 'open' : 'close'}
-    >
-      <div className="modal__overlay" />
-      <div className="modal__main">
+    <Base data-state={visibility ? 'open' : 'close'} {...others}>
+      <>
         {showClose ? (
           <div className="modal__close">
             <button
@@ -44,8 +41,8 @@ const Modal = ({ open, children, showClose, onClose, className }) => {
           </div>
         ) : null}
         <div className="modal__content">{children}</div>
-      </div>
-    </div>
+      </>
+    </Base>
   );
 };
 
