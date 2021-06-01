@@ -1,58 +1,50 @@
 //- 7-components/loader
 
-.loader {
-  --sk-color: #aaaaaa;
-
-  &--xxs {
-    --sk-size: 10px;
+// Loader Page
+.loader__page {
+  &__content {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  &--xs {
-    --sk-size: 20px;
+  &__icon {
+    margin-bottom: 3.5rem;
   }
 
-  &--sm {
-    --sk-size: 30px;
+  &__info {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #{$color-muted};
+    text-transform: uppercase;
+  }
+}
+
+// Loader Router
+.loader__router {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99990;
+  height: 0.6rem;
+  background-color: #eeeeee;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+
+  &[data-state="show"] {
+    opacity: 1;
+    visibility: visible;
   }
 
-  &--lg {
-    --sk-size: 50px;
-  }
-
-  &--xl {
-    --sk-size: 60px;
-  }
-
-  &--xxl {
-    --sk-size: 80px;
-  }
-
-  // Coloring
-  &--muted {
-    --sk-color: #{$color-muted};
-  }
-  &--gray {
-    --sk-color: #{$color-gray};
-  }
-  &--black {
-    --sk-color: #{$color-black};
-  }
-  &--primary {
-    --sk-color: #{$color-primary};
-  }
-  &--secondary {
-    --sk-color: #{$color-secondary};
-  }
-  &--success {
-    --sk-color: #{$color-success};
-  }
-  &--warning {
-    --sk-color: #{$color-warning};
-  }
-  &--danger {
-    --sk-color: #{$color-danger};
-  }
-  &--info {
-    --sk-color: #{$color-info};
+  &__bar {
+    height: 100%;
+    background-color: #{$color-primary};
+    transition: all 0.4s;
+    transition-delay: 0.2s;
   }
 }
