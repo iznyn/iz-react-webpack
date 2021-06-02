@@ -63,7 +63,7 @@ const Button = (props) => {
 Button.defaultProps = {
   variant: 'primary',
   size: 'md',
-  radius: 'none',
+  radius: 'xs',
 };
 
 Button.propTypes = {

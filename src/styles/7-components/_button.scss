@@ -1,5 +1,14 @@
 //- 7-components/button
 
+@function set-color($color) {
+  @if (lightness($color) > 60) {
+    @return darken($color, 50);
+  }
+  @else {
+    @return lighten($color, 50);
+  }
+}
+
 .button {
   position: relative;
   outline: none;
@@ -7,34 +16,90 @@
   cursor: pointer;
   border: none;
   display: inline-block;
+  transition: all 0.4s;
+  color: #000000;
 
   //
   // Size
   &--md {
     padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
   }
   &--xxs {
-    padding: 0.7rem 1.4rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 500;
   }
   &--xs {
-    padding: 0.8rem 1.8rem;
+    padding: 0.8rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 500;
   }
   &--sm {
-    padding: 1rem 2.4rem;
+    padding: 1rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
   }
   &--lg {
     padding: 1.4rem 3.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
   }
   &--xl {
     padding: 1.6rem 3.8rem;
+    font-size: 1.6rem;
+    font-weight: 700;
   }
   &--xxl {
     padding: 1.8rem 4.2rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+  }
+
+  //
+  // Coloring
+  &--white {
+    background-color: #{$color-white};
+    color: #444444;
+  }
+  &--gray {
+    background-color: #{$color-gray};
+    color: #444444
+  }
+  &--black {
+    background-color: #{$color-black};
+    color: #ffffff;
+  }
+  &--primary {
+    background-color: #{$color-primary};
+    color: set-color($color-primary);
+  }
+  &--secondary {
+    background-color: #{$color-secondary};
+    color: set-color($color-secondary);
+  }
+  &--success {
+    background-color: #{$color-success};
+    color: set-color($color-success);
+  }
+  &--warning {
+    background-color: #{$color-warning};
+    color: set-color($color-warning);
+  }
+  &--danger {
+    background-color: #{$color-danger};
+    color: set-color($color-danger);
+  }
+  &--info {
+    background-color: #{$color-info};
+    color: set-color($color-info);
   }
 
   //
   // Loader
   &__loader {
+    cursor: not-allowed;
     .spinner {
       --sk-color: #ffffff;
     }

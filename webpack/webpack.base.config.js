@@ -43,6 +43,7 @@ module.exports = (options) => ({
   devServer: {
     port: env.SERVER_PORT || 3000,
     contentBase: path.resolve(process.cwd(), 'build'),
+    historyApiFallback: true,
     compress: true,
     clientLogLevel: 'silent',
   },

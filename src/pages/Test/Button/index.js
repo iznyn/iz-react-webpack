@@ -3,26 +3,18 @@
  */
 
 import React from 'react';
-
-import Layout from 'components/Layout';
 import Button from 'components/Button';
-// import ModalAlert from 'components/Modal/Alert';
 
-const Homepage = () => (
-  <div className="root">
-    <Layout>
-      <h1 className="mb-8">Homepage</h1>
-    </Layout>
-    {/* <ModalAlert open title="Alert Danger" variant="info">
-      This example for alert danger.
-</ModalAlert> */}
-    <p
+const TestButton = () => (
+  <div className="test__button">
+    <h1 style={{ marginBottom: 30 }}>Test Button</h1>
+    <div
       style={{
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         gap: 12,
-        padding: 30,
+        marginTop: 30,
       }}
     >
       <Button
@@ -74,8 +66,8 @@ const Homepage = () => (
         size="xxl"
         label="View More Posts"
       />
-    </p>
+    </div>
   </div>
 );
 
-export default Homepage;
+export default TestButton;
