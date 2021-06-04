@@ -1,8 +1,5 @@
 import axios from 'axios';
-import {
-  AUTH_TOKEN_STORAGE_NAME,
-  AUTH_CREATOR_TOKEN_STORAGE_NAME,
-} from 'services/constants';
+import { AUTH_TOKEN_STORAGE_NAME } from 'services/constants';
 
 export const getBaseUrl = (mode) => {
   switch (mode) {
@@ -109,21 +106,6 @@ export const Http = {
     // Intercept the request to make sure the token is injected into the header.
     axios.interceptors.request.use(async (config) => {
       const token = await window.localStorage.getItem(AUTH_TOKEN_STORAGE_NAME);
-      // we intercept axios request and add authorizatio header before perform send a request to the server
-      if (token) {
-        // eslint-disable-next-line no-param-reassign
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config;
-    });
-  },
-
-  setupCreatorToken() {
-    // Intercept the request to make sure the token is injected into the header.
-    axios.interceptors.request.use(async (config) => {
-      const token = await window.localStorage.getItem(
-        AUTH_CREATOR_TOKEN_STORAGE_NAME,
-      );
       // we intercept axios request and add authorizatio header before perform send a request to the server
       if (token) {
         // eslint-disable-next-line no-param-reassign
