@@ -2,6 +2,7 @@
  * App/Main.js
  */
 import React, { useEffect } from 'react';
+import { SnackbarProvider } from 'notistack';
 
 import { Http } from 'services/http';
 import Layout from 'components/Layout';
@@ -20,9 +21,13 @@ const Main = () => {
   }, []);
 
   return (
-    <Layout>
-      <Router />
-    </Layout>
+    <>
+      <SnackbarProvider maxSnack={3}>
+        <Layout>
+          <Router />
+        </Layout>
+      </SnackbarProvider>
+    </>
   );
 };
 

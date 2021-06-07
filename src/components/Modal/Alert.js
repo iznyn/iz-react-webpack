@@ -1,7 +1,5 @@
 /**
- * components/Spinner.js
- *
- * Use Spinkit (https://github.com/tobiasahlin/SpinKit)
+ * components/Modal/Alert.js
  */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
