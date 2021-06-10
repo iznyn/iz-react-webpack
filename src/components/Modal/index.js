@@ -3,11 +3,10 @@
  */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { MdClose } from 'react-icons/md';
 
 import Base from './Base';
 
-const Modal = ({ open, children, showClose, onClose, ...others }) => {
+const Modal = ({ open, onClose, ...others }) => {
   const [visibility, setVisibility] = useState(false);
 
   useEffect(() => {
@@ -19,30 +18,18 @@ const Modal = ({ open, children, showClose, onClose, ...others }) => {
   }, [open]);
 
   return (
-    <Base data-state={visibility ? 'open' : 'close'} {...others}>
-      <>
-        {showClose ? (
-          <div className="modal__close">
-            <button
-              type="button"
-              onClick={(evt) => {
-                evt.preventDefault();
-                if (onClose) {
-                  onClose();
-                } else {
-                  setVisibility(false);
-                }
-              }}
-            >
-              <span>
-                <MdClose />
-              </span>
-            </button>
-          </div>
-        ) : null}
-        <div className="modal__content">{children}</div>
-      </>
-    </Base>
+    <Base
+      data-state={visibility ? 'open' : 'close'}
+      onClick={(evt) => {
+        evt.preventDefault();
+        if (onClose) {
+          onClose();
+        } else {
+          setVisibility(false);
+        }
+      }}
+      {...others}
+    />
   );
 };
 
