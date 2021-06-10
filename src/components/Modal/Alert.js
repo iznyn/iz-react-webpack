@@ -58,7 +58,6 @@ const ModalAlert = (props) => {
             label={buttonLabel}
             variant={variant}
             radius="lg"
-            loading
             handler={(evt) => {
               evt.preventDefault();
               if (buttonAction) {
@@ -87,7 +86,7 @@ ModalAlert.propTypes = {
     'success',
     'warning',
     'danger',
-    'info,',
+    'info',
   ]),
   title: PropTypes.string.isRequired,
   children: PropTypes.string,

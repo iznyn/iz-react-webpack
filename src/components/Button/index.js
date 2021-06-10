@@ -76,7 +76,7 @@ Button.propTypes = {
     'success',
     'warning',
     'danger',
-    'info,',
+    'info',
   ]),
   size: PropTypes.oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
   radius: PropTypes.oneOf(['none', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
