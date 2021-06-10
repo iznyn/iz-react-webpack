@@ -1,7 +1,7 @@
 /**
  * components/Modal/Alert.js
  */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
@@ -11,10 +11,21 @@ import {
   IoRemoveCircle,
 } from 'react-icons/io5';
 
-import Base from './Actions';
+import Button from 'components/Button';
+import Base from './Base';
 
 const ModalAlert = (props) => {
   const { open, variant, title, children, buttonLabel, buttonAction } = props;
+  const [visibility, setVisibility] = useState(false);
+
+  useEffect(() => {
+    setVisibility(open);
+
+    return () => {
+      setVisibility(false);
+    };
+  }, [open]);
+
   //
   // getIcon
   //
@@ -33,23 +44,30 @@ const ModalAlert = (props) => {
 
   return (
     <Base
-      open={open}
+      data-state={visibility ? 'open' : 'close'}
       className={classNames('modal__alert', `modal__alert--${variant}`)}
-      actions={[
-        {
-          name: buttonAction ? 'button_custom' : 'close',
-          label: buttonLabel,
-          handler: buttonAction,
-          variant,
-        },
-      ]}
     >
-      <div className="modal__alert__content">
+      <div className="modal__content">
         <div className="modal__icon">{getIcon()}</div>
         <div className="modal__title">
           <h2>{title}</h2>
         </div>
         {children ? <div className="modal__info">{children}</div> : null}
+        <div className="modal__action">
+          <Button
+            label={buttonLabel}
+            variant={variant}
+            radius="lg"
+            handler={(evt) => {
+              evt.preventDefault();
+              if (buttonAction) {
+                buttonAction();
+              } else {
+                setVisibility(false);
+              }
+            }}
+          />
+        </div>
       </div>
     </Base>
   );
