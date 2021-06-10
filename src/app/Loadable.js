@@ -10,7 +10,7 @@ export default loadable(
   // eslint-disable-next-line arrow-body-style
   () => {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(import('./Main')), 300000);
+      setTimeout(() => resolve(import('./Main')), 200);
     });
   },
   {
