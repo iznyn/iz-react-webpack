@@ -4,7 +4,7 @@
 
 import React from 'react';
 import loadable from 'utils/loadable';
-import LoadingIndicator from 'components/Loader/App';
+import LoadingIndicator from 'components/Loader/App/Base';
 
 export default loadable(
   // eslint-disable-next-line arrow-body-style

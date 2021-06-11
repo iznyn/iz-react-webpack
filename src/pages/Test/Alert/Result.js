@@ -1,5 +1,5 @@
 /**
- * pages/Homepage/index.js
+ * pages/Test/Alert/Result.js
  */
 
 import React, { useEffect } from 'react';

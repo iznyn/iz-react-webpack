@@ -5,6 +5,7 @@ import Button from 'pages/Test/Button';
 import Alert from 'pages/Test/Alert';
 import AlertResult from 'pages/Test/Alert/Result';
 import Confirm from 'pages/Test/Confirm';
+import LoaderApp from 'pages/Test/Loader/App';
 
 export default [
   {
@@ -32,6 +33,13 @@ export default [
     name: 'TestConfirm',
     path: '/test/confirm',
     component: Confirm,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestLoaderApp',
+    path: '/test/loader/app',
+    component: LoaderApp,
     exact: true,
     requiresAuth: false,
   },

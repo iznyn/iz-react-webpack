@@ -1,5 +1,5 @@
 /**
- * pages/Homepage/index.js
+ * pages/Test/Confirm/index.js
  */
 
 import React from 'react';
