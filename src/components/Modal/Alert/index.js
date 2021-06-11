@@ -1,5 +1,5 @@
 /**
- * components/Modal/Alert.js
+ * components/Modal/Alert/index.js
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -11,10 +11,19 @@ import {
   IoRemoveCircle,
 } from 'react-icons/io5';
 
-import Base from './Actions';
+import Base from '../Actions';
 
 const ModalAlert = (props) => {
-  const { open, variant, title, children, buttonLabel, buttonAction } = props;
+  const {
+    open,
+    variant,
+    title,
+    children,
+    actions,
+    buttonLabel,
+    buttonAction,
+  } = props;
+
   //
   // getIcon
   //
@@ -31,25 +40,32 @@ const ModalAlert = (props) => {
     return <IoInformationCircle />;
   };
 
+  let buttonActions = actions;
+  if (!buttonActions) {
+    buttonActions = [
+      {
+        name: buttonAction ? 'button_custom' : 'close',
+        label: buttonLabel,
+        handler: buttonAction,
+        variant,
+      },
+    ];
+  }
+
   return (
     <Base
       open={open}
       className={classNames('modal__alert', `modal__alert--${variant}`)}
-      actions={[
-        {
-          name: buttonAction ? 'button_custom' : 'close',
-          label: buttonLabel,
-          handler: buttonAction,
-          variant,
-        },
-      ]}
+      actions={buttonActions}
     >
       <div className="modal__alert__content">
         <div className="modal__icon">{getIcon()}</div>
-        <div className="modal__title">
-          <h2>{title}</h2>
-        </div>
-        {children ? <div className="modal__info">{children}</div> : null}
+        {title && (
+          <div className="modal__title">
+            <h2>{title}</h2>
+          </div>
+        )}
+        {children && <div className="modal__info">{children}</div>}
       </div>
     </Base>
   );
@@ -70,8 +86,9 @@ ModalAlert.propTypes = {
     'danger',
     'info',
   ]),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   children: PropTypes.string,
+  actions: PropTypes.array,
   buttonLabel: PropTypes.string,
   buttonAction: PropTypes.func,
 };

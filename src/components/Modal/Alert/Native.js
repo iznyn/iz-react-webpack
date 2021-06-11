@@ -1,5 +1,5 @@
 /**
- * components/Modal/Alert.js
+ * components/Modal/Alert/Native.js
  */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
@@ -12,9 +12,9 @@ import {
 } from 'react-icons/io5';
 
 import Button from 'components/Button';
-import Base from './Base';
+import Base from '../Base';
 
-const ModalAlert = (props) => {
+const Native = (props) => {
   const { open, variant, title, children, buttonLabel, buttonAction } = props;
   const [visibility, setVisibility] = useState(false);
 
@@ -73,12 +73,12 @@ const ModalAlert = (props) => {
   );
 };
 
-ModalAlert.defaultProps = {
+Native.defaultProps = {
   variant: 'gray',
   buttonLabel: 'Ok',
 };
 
-ModalAlert.propTypes = {
+Native.propTypes = {
   open: PropTypes.bool.isRequired,
   variant: PropTypes.oneOf([
     'gray',
@@ -94,4 +94,4 @@ ModalAlert.propTypes = {
   buttonAction: PropTypes.func,
 };
 
-export default ModalAlert;
+export default Native;

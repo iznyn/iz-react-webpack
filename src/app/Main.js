@@ -6,6 +6,8 @@ import { SnackbarProvider } from 'notistack';
 
 import { Http } from 'services/http';
 import Layout from 'components/Layout';
+import { ModalAlertProvider } from 'components/Modal/Alert/Hook';
+import ModalAlert from 'components/Modal/Alert/Result';
 
 import Router from './Router';
 
@@ -23,9 +25,12 @@ const Main = () => {
   return (
     <>
       <SnackbarProvider maxSnack={3}>
-        <Layout>
-          <Router />
-        </Layout>
+        <ModalAlertProvider>
+          <Layout>
+            <Router />
+          </Layout>
+          <ModalAlert />
+        </ModalAlertProvider>
       </SnackbarProvider>
     </>
   );

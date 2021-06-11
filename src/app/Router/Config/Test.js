@@ -3,6 +3,7 @@
 //
 import Button from 'pages/Test/Button';
 import Alert from 'pages/Test/Alert';
+import AlertResult from 'pages/Test/Alert/Result';
 import Confirm from 'pages/Test/Confirm';
 
 export default [
@@ -17,6 +18,13 @@ export default [
     name: 'TestAlert',
     path: '/test/alert',
     component: Alert,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestAlertResult',
+    path: '/test/alert/result',
+    component: AlertResult,
     exact: true,
     requiresAuth: false,
   },
