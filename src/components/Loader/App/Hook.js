@@ -1,7 +1,7 @@
 /**
  * components/Loader/App/Hook.js
  */
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -31,10 +31,10 @@ AppLoaderProvider.propTypes = {
 export function useAppLoaderProvider() {
   const [status, setStatus] = useState(false);
 
-  const showLoader = (loaderStatus = true) => {
+  const showLoader = useCallback((loaderStatus = true) => {
     setScroll(loaderStatus);
     setStatus(loaderStatus);
-  };
+  });
 
   const setScroll = (loaderStatus) => {
     if (loaderStatus) {

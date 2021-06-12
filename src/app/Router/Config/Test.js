@@ -6,6 +6,7 @@ import Alert from 'pages/Test/Alert';
 import AlertResult from 'pages/Test/Alert/Result';
 import Confirm from 'pages/Test/Confirm';
 import LoaderApp from 'pages/Test/Loader/App';
+import Request from 'pages/Test/Request';
 
 export default [
   {
@@ -40,6 +41,13 @@ export default [
     name: 'TestLoaderApp',
     path: '/test/loader/app',
     component: LoaderApp,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestRequest',
+    path: '/test/request',
+    component: Request,
     exact: true,
     requiresAuth: false,
   },
