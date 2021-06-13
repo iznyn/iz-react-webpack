@@ -3,14 +3,14 @@
  */
 
 import React from 'react';
-import useRequest from 'hooks/Request';
+import { useAppRequest } from 'hooks/Request';
 import { getUsers } from 'services/http/test';
 
 import List from './List';
 import Sidebar from './Sidebar';
 
 const TestRequest = () => {
-  const query = useRequest('users', getUsers);
+  const query = useAppRequest('users', getUsers);
   console.log('TestRequest');
   console.log(query.data);
 

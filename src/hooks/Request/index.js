@@ -31,7 +31,8 @@ export function useAppRequest(queryKey, queryFn, queryOptions = {}) {
   }, []);
 
   const onSettled = () => {
-    setTimeout(() => showLoader(false), 3000);
+    // setTimeout(() => showLoader(false), 3000);
+    showLoader(false);
   };
   const queryOpts = { onSettled, ...queryOptions };
   return useRequest(queryKey, queryFn, queryOpts);

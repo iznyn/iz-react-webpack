@@ -2,10 +2,7 @@
  * App/Main.js
  */
 import React, { useEffect } from 'react';
-import {
-  QueryClient,
-  QueryClientProvider,
-} from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { SnackbarProvider } from 'notistack';
 
 import { Http } from 'services/http';
@@ -17,8 +14,8 @@ import AppLoader from 'components/Loader/App';
 
 import Router from './Router';
 
- // Create a query client
- const queryClient = new QueryClient();
+// Create a query client
+const queryClient = new QueryClient();
 
 const Main = () => {
   useEffect(() => {

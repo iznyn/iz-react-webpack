@@ -3,16 +3,12 @@
  */
 
 import React from 'react';
-import useRequest from 'hooks/Request';
-import { getUsers } from 'services/http/test';
 
 import List from './List';
-import Sidebar from './Sidebar';
+import Sidebar from '../Sidebar';
 
 const TestRequest = () => {
-  const query = useRequest('users', getUsers);
   console.log('TestRequest');
-  console.log(query.data);
 
   return (
     <div className="root">
@@ -20,7 +16,7 @@ const TestRequest = () => {
         <div className="test__alert">
           <h1 style={{ marginBottom: 30 }}>Test Request</h1>
         </div>
-        {query.data ? <List items={query.data.data.data} /> : <p>Empty</p>}
+        <List />
         <Sidebar />
       </div>
     </div>
