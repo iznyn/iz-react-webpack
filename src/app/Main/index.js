@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { SnackbarProvider } from 'notistack';
 
 import { Http } from 'services/http';
-import Layout from 'components/Layout';
 import { ModalAlertProvider } from 'components/Modal/Alert/Hook';
 import ModalAlert from 'components/Modal/Alert/Result';
 
@@ -33,9 +32,7 @@ const Main = () => {
       <QueryClientProvider client={queryClient}>
         <SnackbarProvider maxSnack={3}>
           <ModalAlertProvider>
-            <Layout>
-              <Router />
-            </Layout>
+            <Router />
             <ModalAlert />
           </ModalAlertProvider>
         </SnackbarProvider>
