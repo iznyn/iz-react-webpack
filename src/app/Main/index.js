@@ -26,8 +26,6 @@ const Main = () => {
     }
   }, []);
 
-  console.log('Main');
-
   return (
     <>
       <QueryClientProvider client={queryClient}>
