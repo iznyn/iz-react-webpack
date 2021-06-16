@@ -37,36 +37,36 @@ const MainRouter = () => {
   // }, [location]);
 
   return (
-    <div>
-      <Switch location={isModal ? background : location}>
-        {routeItems.map((route) => {
-          const { name, modalSupport } = route;
-          if (modalSupport && isModal && modal === name) {
-            return null;
-          }
-          const LoadableComponent = routeComponents[name];
-          if (route.requiresAuth) {
-            return (
-              <Private
-                key={`route-${route.name}`}
-                path={route.path}
-                exact={route.exact}
-                component={withGA(LoadableComponent)}
-              />
-            );
-          }
+    <Switch location={isModal ? background : location}>
+      {routeItems.map((route) => {
+        const { name, modalSupport } = route;
+        if (modalSupport && isModal && modal === name) {
+          return null;
+        }
+        const LoadableComponent = routeComponents[name];
+        const GAComponent = withGA(LoadableComponent);
+
+        if (route.requiresAuth) {
           return (
-            <Route
+            <Private
               key={`route-${route.name}`}
               path={route.path}
               exact={route.exact}
-              component={withGA(LoadableComponent)}
+              component={GAComponent}
             />
           );
-        })}
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+        }
+        return (
+          <Route
+            key={`route-${route.name}`}
+            path={route.path}
+            exact={route.exact}
+            component={GAComponent}
+          />
+        );
+      })}
+      <Route component={NotFoundPage} />
+    </Switch>
   );
 };
 

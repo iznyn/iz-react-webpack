@@ -1,21 +1,19 @@
 /**
- * app.js
+ * app/index.js
  *
  */
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Http } from 'services/http';
-import Main from './Main';
+import Main from './Main/Loadable';
 
 // Init API service
 Http.init();
 
 const App = () => (
   <BrowserRouter basename={process.env.APP_BASENAME}>
-    <Switch>
-      <Main />
-    </Switch>
+    <Main />
   </BrowserRouter>
 );
 

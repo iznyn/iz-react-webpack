@@ -1,6 +1,0 @@
-/**
- * Button styles
- */
-.button {
-  @apply uppercase flex flex-row items-center;
-}

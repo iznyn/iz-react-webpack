@@ -1,24 +1,19 @@
 /**
- * App/Main.js
+ * App/Main/index.js
  */
 import React, { useEffect } from 'react';
-import {
-  QueryClient,
-  QueryClientProvider,
-} from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { SnackbarProvider } from 'notistack';
 
 import { Http } from 'services/http';
 import Layout from 'components/Layout';
 import { ModalAlertProvider } from 'components/Modal/Alert/Hook';
 import ModalAlert from 'components/Modal/Alert/Result';
-import { AppLoaderProvider } from 'components/Loader/App/Hook';
-import AppLoader from 'components/Loader/App';
 
 import Router from './Router';
 
- // Create a query client
- const queryClient = new QueryClient();
+// Create a query client
+const queryClient = new QueryClient();
 
 const Main = () => {
   useEffect(() => {
@@ -36,13 +31,10 @@ const Main = () => {
       <QueryClientProvider client={queryClient}>
         <SnackbarProvider maxSnack={3}>
           <ModalAlertProvider>
-            <AppLoaderProvider>
-              <Layout>
-                <Router />
-              </Layout>
-              <ModalAlert />
-              <AppLoader />
-            </AppLoaderProvider>
+            <Layout>
+              <Router />
+            </Layout>
+            <ModalAlert />
           </ModalAlertProvider>
         </SnackbarProvider>
       </QueryClientProvider>

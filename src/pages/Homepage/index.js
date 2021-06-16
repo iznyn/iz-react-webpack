@@ -4,15 +4,12 @@
 
 import React from 'react';
 
-import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
 const Homepage = () => (
-  <div className="root">
+  <div className="homepage">
     <Seo />
-    <Layout>
-      <h1 className="mb-8">Homepage</h1>
-    </Layout>
+    <h1 className="mb-8">Homepage</h1>
   </div>
 );
 

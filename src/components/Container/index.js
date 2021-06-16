@@ -22,6 +22,10 @@ const Container = ({ children, size, className, ...others }) => {
   );
 };
 
+Container.defaultProps = {
+  size: 'md',
+};
+
 Container.propTypes = {
   children: PropTypes.node,
   size: PropTypes.string,
