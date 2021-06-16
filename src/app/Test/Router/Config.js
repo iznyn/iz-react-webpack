@@ -7,6 +7,8 @@ import AlertResult from 'pages/Test/Alert/Result';
 import Confirm from 'pages/Test/Confirm';
 import LoaderApp from 'pages/Test/Loader/App';
 import Request from 'pages/Test/Request';
+import RequestDetail from 'pages/Test/Request/Detail';
+import RequestLoadMore from 'pages/Test/Request/LoadMore';
 
 export default [
   {
@@ -41,6 +43,20 @@ export default [
     name: 'TestLoaderApp',
     path: '/loader/app',
     component: LoaderApp,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestRequestDetail',
+    path: '/request/detail',
+    component: RequestDetail,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'RequestLoadMore',
+    path: '/request/load-more',
+    component: RequestLoadMore,
     exact: true,
     requiresAuth: false,
   },

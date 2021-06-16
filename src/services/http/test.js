@@ -6,4 +6,7 @@
 import { Http } from './index';
 
 // Get Users
-export const getUsers = () => Http.get('users?delay=3');
+export const getUsers = (page = 1) => Http.get(`users?page=${page}&delay=3`);
+
+// Get User
+export const getUser = () => Http.get('users/2?delay=3');
