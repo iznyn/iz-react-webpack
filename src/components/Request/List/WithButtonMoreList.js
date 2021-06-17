@@ -1,5 +1,5 @@
 /**
- * components/Request/List/WithLoadMore.js
+ * components/Request/List/WithButtonMore.js
  */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
 import Button from 'components/Button';
 import ListRequest from './index';
 
-const WithLoadMore = (props) => {
+const WithButtonMore = (props) => {
   const { name, service, buttonLabel, buttonConfig, ...others } = props;
   const [page, setPage] = useState(1);
 
-  console.log('WithLoadMore');
+  console.log('WithButtonMore');
 
   //
   // TODO: pemanggilan react-query harus diletakkan
@@ -25,7 +25,7 @@ const WithLoadMore = (props) => {
     <ListRequest
       name={[name, page]}
       service={() => service(page)}
-      fetchOptions={{ keepPreviousData: true }}
+      queryOptions={{ keepPreviousData: true }}
       onRenderAfter={(query) => {
         const { data, isPreviousData } = query;
         const { total_pages: totalPages } = data.data;
@@ -51,12 +51,12 @@ const WithLoadMore = (props) => {
   );
 };
 
-WithLoadMore.defaultProps = {
+WithButtonMore.defaultProps = {
   emptyInfo: 'Content is not found',
   buttonLabel: 'Show More',
 };
 
-WithLoadMore.propTypes = {
+WithButtonMore.propTypes = {
   name: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
   service: PropTypes.func.isRequired,
   onRenderItem: PropTypes.func.isRequired,
@@ -68,4 +68,4 @@ WithLoadMore.propTypes = {
   buttonConfig: PropTypes.object,
 };
 
-export default WithLoadMore;
+export default WithButtonMore;

@@ -5,7 +5,7 @@
 import React from 'react';
 
 import { getUsers } from 'services/http/test';
-import RequestList from 'components/Request/List/WithLoadMore';
+import RequestList from 'components/Request/List/WithButtonMore';
 
 import Sidebar from '../Sidebar';
 import Item from './Item';
