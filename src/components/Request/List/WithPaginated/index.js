@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import useRequest from 'hooks/Request';
-import Loader from '../Loader';
-import Items from './Items';
+import Loader from '../../Loader';
+import Items from '../Items';
 
 const WithPaginated = (props) => {
   const {
@@ -29,8 +29,6 @@ const WithPaginated = (props) => {
   const { isLoading, data, isError } = query;
 
   console.log('WithPaginated');
-  console.log(`isLoading: ${isLoading}`);
-  console.log(data);
 
   const checkIsEmpty = () => {
     if (data && !isError && data.data && data.data.data.length > 0) {

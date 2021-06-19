@@ -4,9 +4,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Layout from '../Layout';
+import Layout from '../../Layout';
 import Query from './Query';
-import Items from './Items';
+import Items from '../Items';
 
 const WithPaginated = (props) => {
   const {

@@ -5,19 +5,21 @@
 import React from 'react';
 
 import { getUsers } from 'services/http/test';
-import RequestList from 'components/Request/List/WithLoadMore/WithButton';
+import RequestList from 'components/Request/List/WithLoadMore/WithScroll';
 
 import Sidebar from '../Sidebar';
 import Item from './Item';
 
-const TestLoadMore = () => {
+const TestScrollLoadMore = () => {
   console.log('Test Request > Load More');
 
   return (
     <div className="root">
       <div style={{ padding: 40 }}>
         <div className="test__alert">
-          <h1 style={{ marginBottom: 30 }}>Test Request</h1>
+          <h1 style={{ marginBottom: 30, height: 900 }}>
+            Test Scroll Load More
+          </h1>
         </div>
         <RequestList
           name="users"
@@ -30,4 +32,4 @@ const TestLoadMore = () => {
   );
 };
 
-export default TestLoadMore;
+export default TestScrollLoadMore;

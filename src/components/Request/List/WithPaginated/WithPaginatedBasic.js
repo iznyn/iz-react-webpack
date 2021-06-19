@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import useRequest from 'hooks/Request';
-import Loader from '../Loader';
-import Items from './Items';
+import Loader from '../../Loader';
+import Items from '../Items';
 
 const WithPaginated = (props) => {
   const {
@@ -26,10 +26,10 @@ const WithPaginated = (props) => {
   // Fetch data
   const fetchOptions = { onSuccess, keepPreviousData: true };
   const query = useRequest([name, page], () => service(page), fetchOptions);
-  const { isLoading, isFetching, data, isError } = query;
+  const { isLoading, data, isError } = query;
 
   console.log('WithPaginated');
-  console.log(`isFetching: ${isFetching}`);
+  console.log(`isLoading: ${isLoading}`);
   console.log(data);
 
   const checkIsEmpty = () => {

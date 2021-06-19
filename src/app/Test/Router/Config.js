@@ -9,6 +9,7 @@ import LoaderApp from 'pages/Test/Loader/App';
 import Request from 'pages/Test/Request';
 import RequestDetail from 'pages/Test/Request/Detail';
 import RequestLoadMore from 'pages/Test/Request/LoadMore';
+import RequestScrollLoadMore from 'pages/Test/Request/ScrollLoadMore';
 
 export default [
   {
@@ -57,6 +58,13 @@ export default [
     name: 'RequestLoadMore',
     path: '/request/load-more',
     component: RequestLoadMore,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'RequestScrollLoadMore',
+    path: '/request/scroll-load-more',
+    component: RequestScrollLoadMore,
     exact: true,
     requiresAuth: false,
   },

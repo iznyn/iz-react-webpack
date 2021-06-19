@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import useRequest from 'hooks/Request';
-import Layout from '../Layout';
-import Items from './Items';
+import Layout from '../../Layout';
+import Items from '../Items';
 
 const WithPaginated = (props) => {
   const {

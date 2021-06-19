@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Base from '../Base';
+import Items from './Items';
 
 const RequestList = (props) => {
   const {
@@ -36,14 +37,11 @@ const RequestList = (props) => {
             {!checkIsEmpty(query) ? (
               <div className="request__content">
                 <>
-                  <div className="request__items">
-                    {data.data.data.map((item, key) => (
-                      // eslint-disable-next-line react/no-array-index-key
-                      <div className="request__item" key={`${name}-${key}`}>
-                        {onRenderItem(item)}
-                      </div>
-                    ))}
-                  </div>
+                  <Items
+                    name={Array.isArray(name) ? name[0] : name}
+                    items={data.data.data}
+                    onRenderItem={onRenderItem}
+                  />
                   {onRenderAfter && onRenderAfter(query)}
                 </>
               </div>
