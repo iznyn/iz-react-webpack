@@ -10,6 +10,7 @@ import Request from 'pages/Test/Request';
 import RequestDetail from 'pages/Test/Request/Detail';
 import RequestLoadMore from 'pages/Test/Request/LoadMore';
 import RequestScrollLoadMore from 'pages/Test/Request/ScrollLoadMore';
+import RequestPagination from 'pages/Test/Request/Pagination';
 
 export default [
   {
@@ -65,6 +66,13 @@ export default [
     name: 'RequestScrollLoadMore',
     path: '/request/scroll-load-more',
     component: RequestScrollLoadMore,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'RequestPagination',
+    path: '/request/pagination',
+    component: RequestPagination,
     exact: true,
     requiresAuth: false,
   },
