@@ -14,17 +14,20 @@ import { Http } from 'services/http';
 import Main from './Main/Loadable';
 import Admin from './Admin/Loadable';
 import Test from './Test/Loadable';
+import General from './General';
 
 // Init API service
 Http.init();
 
 const App = () => (
   <BrowserRouter basename={process.env.APP_BASENAME}>
-    <Switch>
-      <Route path="/admin" component={Admin} />
-      <Route path="/test" component={Test} />
-      <Route component={Main} />
-    </Switch>
+    <General>
+      <Switch>
+        <Route path="/admin" component={Admin} />
+        <Route path="/test" component={Test} />
+        <Route component={Main} />
+      </Switch>
+    </General>
   </BrowserRouter>
 );
 

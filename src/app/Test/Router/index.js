@@ -11,7 +11,6 @@ const TestRouter = () => (
   <Switch>
     {Config.map((route) => {
       const { name, path, exact, component } = route;
-      console.log(`/test/${path}`);
       return (
         <Route
           key={`route-${name}`}

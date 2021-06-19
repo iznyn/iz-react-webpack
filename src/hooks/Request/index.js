@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useQuery } from 'react-query';
+import { useQuery, useInfiniteQuery } from 'react-query';
 
 import { useAppLoader } from 'components/Loader/App/Hook';
 import useError from './Error';
@@ -15,6 +15,22 @@ export default function useRequest(queryKey, queryFn, queryOptions = {}) {
   };
   const queryOpts = { onError, ...queryOptions };
   return useQuery(queryKey, queryFn, queryOpts);
+}
+
+/**
+ * useInfiniteRequest
+ */
+export function useInfiniteRequest(queryKey, queryFn, queryOptions = {}) {
+  const { showError } = useError();
+
+  const onError = (error) => {
+    showError(error);
+  };
+  const queryOpts = {
+    onError,
+    ...queryOptions,
+  };
+  return useInfiniteQuery(queryKey, queryFn, queryOpts);
 }
 
 /**
