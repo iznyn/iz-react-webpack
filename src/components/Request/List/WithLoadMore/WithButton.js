@@ -10,13 +10,9 @@ import ListLoadMore from './index';
 const WithButton = (props) => {
   const { buttonLabel, buttonConfig, ...others } = props;
 
-  console.log('WithButton');
-
   return (
     <ListLoadMore
       onRenderActions={(query) => {
-        console.log('Render Action');
-
         const {
           isPreviousData,
           isFetchingNextPage,

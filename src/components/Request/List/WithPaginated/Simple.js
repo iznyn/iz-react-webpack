@@ -17,8 +17,6 @@ const Simple = (props) => {
     ...others
   } = props;
 
-  console.log('Pagination Simple');
-
   return (
     <ListRequest
       onRenderActions={(query, page, setPage) => {

@@ -12,8 +12,6 @@ import ListRequest from './index';
 const Full = (props) => {
   const { paginationClasses, ...others } = props;
 
-  console.log('Pagination Full');
-
   return (
     <ListRequest
       onRenderActions={(query, page, setPage) => {

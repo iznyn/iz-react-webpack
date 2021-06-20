@@ -26,8 +26,6 @@ const WithPaginated = (props) => {
     return true;
   };
 
-  console.log('WithPaginated');
-
   return (
     <Query
       name={name}

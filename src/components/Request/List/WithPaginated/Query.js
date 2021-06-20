@@ -14,8 +14,6 @@ const Query = (props) => {
   const fetchOptions = { onSuccess, keepPreviousData: true };
   const query = useRequest([name, page], () => service(page), fetchOptions);
 
-  console.log('Query');
-
   return <>{onRenderContent(query, page, setPage)}</>;
 };
 

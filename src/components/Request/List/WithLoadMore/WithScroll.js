@@ -10,21 +10,15 @@ import ListLoadMore from './index';
 const WithScroll = (props) => {
   const { moreLoader, loadingMoreLabel, ...others } = props;
 
-  console.log('WithScroll');
-
   return (
     <ListLoadMore
-      onRenderActions={(query) => {
-        console.log('Render Action');
-
-        return (
-          <ScrollIndicator
-            query={query}
-            loadingMoreLabel={loadingMoreLabel}
-            moreLoader={moreLoader}
-          />
-        );
-      }}
+      onRenderActions={(query) => (
+        <ScrollIndicator
+          query={query}
+          loadingMoreLabel={loadingMoreLabel}
+          moreLoader={moreLoader}
+        />
+      )}
       {...others}
     />
   );
@@ -47,8 +41,6 @@ WithScroll.propTypes = {
 const ScrollIndicator = ({ moreLoader, loadingMoreLabel, query }) => {
   const loadMoreRef = useRef();
   const { fetchNextPage, hasNextPage, isFetchingNextPage } = query;
-
-  console.log('ScrollIndicator');
 
   useIntersectionObserver({
     target: loadMoreRef,

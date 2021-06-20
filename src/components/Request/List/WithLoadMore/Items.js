@@ -7,8 +7,6 @@ import PropTypes from 'prop-types';
 const ListItems = (props) => {
   const { name, items, onRenderItem } = props;
 
-  console.log('ListItems');
-
   return (
     <>
       {items.map((item, key) => (

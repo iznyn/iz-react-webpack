@@ -28,10 +28,6 @@ const WithPaginated = (props) => {
   const query = useRequest([name, page], () => service(page), fetchOptions);
   const { isLoading, data, isError } = query;
 
-  console.log('WithPaginated');
-  console.log(`isLoading: ${isLoading}`);
-  console.log(data);
-
   const checkIsEmpty = () => {
     if (data && !isError && data.data && data.data.data.length > 0) {
       return false;

@@ -22,8 +22,6 @@ const WithLoadMore = (props) => {
     className,
   } = props;
 
-  console.log('WithLoadMore');
-
   // Fetch data
   const fetchOptions = {
     onSuccess,

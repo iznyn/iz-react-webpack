@@ -24,12 +24,8 @@ const Request = (props) => {
   if (queryOptions) {
     fetchOptions = { onSuccess, ...queryOptions };
   }
-  console.log(fetchOptions);
   const query = useRequest(name, service, fetchOptions);
-  const { isLoading, isFetching } = query;
-
-  console.log(`isLoading: ${isLoading}`);
-  console.log(`isFetching: ${isFetching}`);
+  const { isLoading } = query;
 
   return (
     <div className={classNames('request', className)}>

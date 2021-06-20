@@ -18,8 +18,6 @@ const Layout = (props) => {
     className,
   } = props;
 
-  console.log('Request > Layout');
-
   return (
     <div className={classNames('request', className)}>
       <div className="request__inner">

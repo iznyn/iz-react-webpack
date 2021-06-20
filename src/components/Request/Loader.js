@@ -6,14 +6,11 @@ import PropTypes from 'prop-types';
 
 import LoaderContent from 'components/Loader/Content';
 
-const RequestLoader = ({ loader }) => {
-  console.log('RequestLoader');
-  return (
-    <div className="request__loading">
-      {loader ? <>{loader}</> : <LoaderContent />}
-    </div>
-  );
-};
+const RequestLoader = ({ loader }) => (
+  <div className="request__loading">
+    {loader ? <>{loader}</> : <LoaderContent />}
+  </div>
+);
 
 RequestLoader.propTypes = {
   loader: PropTypes.node,

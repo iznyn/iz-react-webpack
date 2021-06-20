@@ -11,7 +11,7 @@ const WithButtonMore = (props) => {
   const { name, service, buttonLabel, buttonConfig, ...others } = props;
   const [page, setPage] = useState(1);
 
-  console.log('WithButtonMore');
+  // console.log('WithButtonMore');
 
   //
   // TODO: pemanggilan react-query harus diletakkan
