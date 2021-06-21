@@ -5,10 +5,22 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
+}
+
 module.exports = {
   resolve: {
     fallback: {
       http: false,
+    },
+    modules: ['node_modules', 'src'],
+    extensions: ['.js', '.jsx', '.react.js'],
+    mainFields: ['browser', 'jsnext:main', 'main'],
+    alias: {
+      '@': resolve('src'),
+      'components': resolve('src/components'),
+      moment$: resolve('node_modules/moment/moment.js'),
     },
   },
   module: {

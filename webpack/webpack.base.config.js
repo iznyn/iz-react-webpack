@@ -165,7 +165,6 @@ module.exports = (options) => ({
     mainFields: ['browser', 'jsnext:main', 'main'],
     alias: {
       '@': resolve('src'),
-      '@csx': resolve('src/styles/mixins'),
       moment$: resolve('node_modules/moment/moment.js'),
     },
   },
