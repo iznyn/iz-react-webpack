@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useQuery, useInfiniteQuery } from 'react-query';
+import { useQuery, useInfiniteQuery, useMutation } from 'react-query';
 
 import { useAppLoader } from 'components/Loader/App/Hook';
 import useError from './Error';
@@ -52,4 +52,20 @@ export function useAppRequest(queryKey, queryFn, queryOptions = {}) {
   };
   const queryOpts = { onSettled, ...queryOptions };
   return useRequest(queryKey, queryFn, queryOpts);
+}
+
+/**
+ * useMutationRequest
+ */
+export function useMutationRequest(requestFn, queryOptions = {}) {
+  const { showError } = useError();
+
+  const onError = (error) => {
+    showError(error);
+  };
+  const queryOpts = {
+    onError,
+    ...queryOptions,
+  };
+  return useMutation(requestFn, queryOpts);
 }

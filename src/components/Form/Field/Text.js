@@ -11,21 +11,21 @@ const FieldText = (props) => {
   const {
     name,
     type,
+    defaultValue,
     placeholder,
-    value,
-    onChange,
     inputProps,
+    validator,
     ...others
   } = props;
 
   return (
-    <Layout {...others}>
+    <Layout name={name} validator={validator} {...others}>
       <InputText
         name={name}
         type={type}
         placeholder={placeholder}
-        value={value}
-        onChange={onChange}
+        defaultValue={defaultValue}
+        validator={validator}
         {...inputProps}
       />
     </Layout>
@@ -38,17 +38,20 @@ FieldText.defaultProps = {
 };
 
 FieldText.propTypes = {
-  children: PropTypes.node.isRequired,
+  name: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   style: PropTypes.oneOf(['block', 'inline']),
   label: PropTypes.string,
   info: PropTypes.node,
-  name: PropTypes.string.isRequired,
   type: PropTypes.string,
-  value: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func,
+  defaultValue: PropTypes.any,
   inputProps: PropTypes.object,
+  validator: PropTypes.shape({
+    hook: PropTypes.object.isRequired,
+    messages: PropTypes.object.isRequired,
+    rules: PropTypes.object.isRequired,
+  }),
 };
 
 export default FieldText;

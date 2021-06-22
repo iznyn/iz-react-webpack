@@ -11,6 +11,7 @@ import RequestDetail from 'pages/Test/Request/Detail';
 import RequestLoadMore from 'pages/Test/Request/LoadMore';
 import RequestScrollLoadMore from 'pages/Test/Request/ScrollLoadMore';
 import RequestPagination from 'pages/Test/Request/Pagination';
+import FormLogin from 'pages/Test/Form/Login';
 
 export default [
   {
@@ -80,6 +81,13 @@ export default [
     name: 'TestRequest',
     path: '/request',
     component: Request,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestFormLogin',
+    path: '/form/login',
+    component: FormLogin,
     exact: true,
     requiresAuth: false,
   },

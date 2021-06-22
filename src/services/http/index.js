@@ -16,7 +16,7 @@ export const BaseUrl = getBaseUrl(process.env.NODE_ENV);
 const HeaderConfig = {
   // 'X-Requested-With': 'XMLHttpRequest',
   // Accept: 'application/json',
-  'Content-Type': 'application/x-www-form-urlencoded',
+  // 'Content-Type': 'application/x-www-form-urlencoded',
 };
 
 export const Http = {
@@ -36,7 +36,8 @@ export const Http = {
     }
 
     // the rest of other request methods
-    const apiData = data instanceof FormData ? data : getFormData(data);
+    // const apiData = data instanceof FormData ? data : getFormData(data);
+    const apiData = data;
     return axios.request({
       url,
       data: apiData,
@@ -125,6 +126,7 @@ export const Http = {
   },
 };
 
+// eslint-disable-next-line no-unused-vars
 function getFormData(data) {
   const formData = new FormData();
   // eslint-disable-next-line no-restricted-syntax

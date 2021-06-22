@@ -5,13 +5,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Layout from './Layout';
-import InputTextarea from '../Input/Textarea';
+import InputPassword from '../Input/Password';
 
-const FieldTextarea = (props) => {
+const FieldPassword = (props) => {
   const {
     name,
-    defaultValue,
     placeholder,
+    defaultValue,
+    seePasswordButton,
     inputProps,
     validator,
     ...others
@@ -19,10 +20,11 @@ const FieldTextarea = (props) => {
 
   return (
     <Layout name={name} validator={validator} {...others}>
-      <InputTextarea
+      <InputPassword
         name={name}
-        defaultValue={defaultValue}
         placeholder={placeholder}
+        defaultValue={defaultValue}
+        seePasswordButton={seePasswordButton}
         validator={validator}
         {...inputProps}
       />
@@ -30,20 +32,21 @@ const FieldTextarea = (props) => {
   );
 };
 
-FieldTextarea.defaultProps = {
+FieldPassword.defaultProps = {
   style: 'block',
+  seePasswordButton: true,
 };
 
-FieldTextarea.propTypes = {
+FieldPassword.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   style: PropTypes.oneOf(['block', 'inline']),
   label: PropTypes.string,
   info: PropTypes.node,
-  placeholder: PropTypes.string,
-  onChange: PropTypes.func,
-  inputProps: PropTypes.object,
   defaultValue: PropTypes.any,
+  placeholder: PropTypes.string,
+  inputProps: PropTypes.object,
+  seePasswordButton: PropTypes.bool,
   validator: PropTypes.shape({
     hook: PropTypes.object.isRequired,
     messages: PropTypes.object.isRequired,
@@ -51,4 +54,4 @@ FieldTextarea.propTypes = {
   }),
 };
 
-export default FieldTextarea;
+export default FieldPassword;

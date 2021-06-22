@@ -19,6 +19,8 @@ module.exports = {
   ],
   webpackFinal: async (config, { configType }) => {
     config.resolve.alias['components'] = resolve('src/components');
+    config.resolve.alias['hooks'] = resolve('src/hooks');
+    config.resolve.alias['services'] = resolve('src/services');
 
     config.module.rules.push({
       test: /\.s[ac]ss$/i,
