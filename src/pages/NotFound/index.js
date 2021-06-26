@@ -5,17 +5,14 @@
 import React from 'react';
 
 import Container from 'components/Container';
-import Layout from 'components/Layout';
 
 const NotFound = () => (
-  <div className="root">
-    <Layout>
-      <div className="content">
-        <Container size="xl">
-          <h1>ERROR 404</h1>
-        </Container>
-      </div>
-    </Layout>
+  <div className="page__error page__error__4040">
+    <div className="content">
+      <Container size="xl">
+        <h1>ERROR 404</h1>
+      </Container>
+    </div>
   </div>
 );
 

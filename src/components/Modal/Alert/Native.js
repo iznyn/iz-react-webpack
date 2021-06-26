@@ -45,7 +45,7 @@ const Native = (props) => {
   return (
     <Base
       data-state={visibility ? 'open' : 'close'}
-      className={classNames('modal__alert', `modal__alert--${variant}`)}
+      className={classNames('modal-alert', `modal-alert--${variant}`)}
     >
       <div className="modal__content">
         <div className="modal__icon">{getIcon()}</div>

@@ -53,9 +53,9 @@ const ModalConfirm = (props) => {
     <Base
       open={open}
       className={classNames(
-        'modal__alert',
+        'modal-alert',
         'modal__confirm',
-        `modal__alert--${variant}`,
+        `modal-alert--${variant}`,
       )}
       actions={[
         {
@@ -72,7 +72,7 @@ const ModalConfirm = (props) => {
         },
       ]}
     >
-      <div className="modal__alert__content">
+      <div className="modal-alert__content">
         <div className="modal__icon">{getIcon()}</div>
         <div className="modal__title">
           <h2>{title}</h2>

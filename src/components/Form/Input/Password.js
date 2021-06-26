@@ -27,6 +27,7 @@ const InputPassword = (props) => {
       validator={validator}
       className={className}
       style={style}
+      type="password"
       onRender={(field) => (
         <>
           <input

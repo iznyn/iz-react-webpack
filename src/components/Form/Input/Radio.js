@@ -1,18 +1,19 @@
 /**
- * components/Form/Input/Text.js
+ * components/Form/Input/Radio.js
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import Base from './Base';
 
-const InputText = (props) => {
+const InputRadio = (props) => {
   const {
     name,
-    type,
+    label,
     className,
     style,
     defaultValue,
+    checked,
     validator,
     ...others
   } = props;
@@ -22,31 +23,40 @@ const InputText = (props) => {
       name={name}
       className={className}
       style={style}
-      type="text"
       defaultValue={defaultValue}
       validator={validator}
       onRender={(field) => (
-        <input type={type} id={`input-${name}`} {...field} {...others} />
+        <label className="checkbox checkbox--radio">
+          <input
+            type="radio"
+            id={`input-${name}`}
+            checked={checked}
+            {...field}
+            {...others}
+          />
+          <div className="checkbox__indicator"></div>
+          <span className="checkbox__label">{label}</span>
+        </label>
       )}
     />
   );
 };
 
-InputText.defaultProps = {
-  type: 'text',
+InputRadio.defaultProps = {
   style: 'default',
 };
 
-InputText.propTypes = {
+InputRadio.propTypes = {
   name: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  label: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   style: PropTypes.oneOf(['default']),
   defaultValue: PropTypes.any,
+  checked: PropTypes.bool,
   validator: PropTypes.shape({
     hook: PropTypes.object.isRequired,
     rules: PropTypes.object.isRequired,
   }),
 };
 
-export default InputText;
+export default InputRadio;

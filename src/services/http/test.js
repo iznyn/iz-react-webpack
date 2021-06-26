@@ -13,3 +13,6 @@ export const getUser = () => Http.get('users/2?delay=3');
 
 // Login
 export const login = (data) => Http.post('login', data);
+
+// Register
+export const register = (data) => Http.post('register', data);

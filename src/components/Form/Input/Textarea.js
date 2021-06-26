@@ -22,6 +22,7 @@ const InputTextarea = (props) => {
       name={name}
       className={className}
       style={style}
+      type="textarea"
       defaultValue={defaultValue}
       validator={validator}
       onRender={(field) => (

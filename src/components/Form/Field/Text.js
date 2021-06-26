@@ -1,5 +1,5 @@
 /**
- * components/Form/Field/Layout.js
+ * components/Form/Field/Text.js
  */
 import React from 'react';
 import PropTypes from 'prop-types';

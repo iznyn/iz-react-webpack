@@ -12,6 +12,7 @@ import RequestLoadMore from 'pages/Test/Request/LoadMore';
 import RequestScrollLoadMore from 'pages/Test/Request/ScrollLoadMore';
 import RequestPagination from 'pages/Test/Request/Pagination';
 import FormLogin from 'pages/Test/Form/Login';
+import FormRegister from 'pages/Test/Form/Register';
 
 export default [
   {
@@ -88,6 +89,13 @@ export default [
     name: 'TestFormLogin',
     path: '/form/login',
     component: FormLogin,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestFormRegister',
+    path: '/form/register',
+    component: FormRegister,
     exact: true,
     requiresAuth: false,
   },

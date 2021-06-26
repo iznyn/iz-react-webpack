@@ -1,5 +1,5 @@
 /**
- * components/Form/Text.js
+ * components/Form/Sample/Login/FormWithEmail.js
  */
 import React from 'react';
 import PropTypes from 'prop-types';

@@ -55,10 +55,10 @@ const ModalAlert = (props) => {
   return (
     <Base
       open={open}
-      className={classNames('modal__alert', `modal__alert--${variant}`)}
+      className={classNames('modal-alert', `modal-alert--${variant}`)}
       actions={buttonActions}
     >
-      <div className="modal__alert__content">
+      <div className="modal-alert__content">
         <div className="modal__icon">{getIcon()}</div>
         {title && (
           <div className="modal__title">

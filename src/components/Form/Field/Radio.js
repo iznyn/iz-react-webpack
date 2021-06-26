@@ -1,52 +1,51 @@
 /**
- * components/Form/Field/Password.js
+ * components/Form/Field/Radio.js
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import Layout from './Layout';
-import InputPassword from '../Input/Password';
+import InputRadio from '../Input/Radio';
 
-const FieldPassword = (props) => {
+const FieldRadio = (props) => {
   const {
     name,
-    placeholder,
     defaultValue,
-    seePasswordButton,
+    inputLabel,
     inputProps,
+    checked,
     validator,
     ...others
   } = props;
 
   return (
     <Layout name={name} validator={validator} {...others}>
-      <InputPassword
+      <InputRadio
         name={name}
-        placeholder={placeholder}
+        label={inputLabel}
         defaultValue={defaultValue}
-        seePasswordButton={seePasswordButton}
         validator={validator}
+        checked={checked}
         {...inputProps}
       />
     </Layout>
   );
 };
 
-FieldPassword.defaultProps = {
+FieldRadio.defaultProps = {
   style: 'block',
-  seePasswordButton: true,
 };
 
-FieldPassword.propTypes = {
+FieldRadio.propTypes = {
   name: PropTypes.string.isRequired,
+  inputLabel: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   style: PropTypes.oneOf(['block', 'inline']),
   label: PropTypes.string,
   info: PropTypes.node,
   defaultValue: PropTypes.any,
-  placeholder: PropTypes.string,
+  checked: PropTypes.bool,
   inputProps: PropTypes.object,
-  seePasswordButton: PropTypes.bool,
   validator: PropTypes.shape({
     hook: PropTypes.object.isRequired,
     messages: PropTypes.object.isRequired,
@@ -54,4 +53,4 @@ FieldPassword.propTypes = {
   }),
 };
 
-export default FieldPassword;
+export default FieldRadio;

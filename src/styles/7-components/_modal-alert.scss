@@ -1,6 +1,6 @@
 //- 7-components/modal/alert
 
-.modal__alert {
+.modal-alert {
   .modal {
     &__main {
       min-width: 48rem;
@@ -17,7 +17,7 @@
 
       svg {
         font-size: 6rem;
-        color: #{$color-gray};
+        color: #{$color-grey};
       }
     }
     &__title {
