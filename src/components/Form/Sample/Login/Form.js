@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import FieldText from 'components/Form/Field/Text';
 import FieldPassword from 'components/Form/Field/Password';
+import FieldCheckbox from 'components/Form/Field/Checkbox';
 
 const FormLogin = ({ formHook }) => (
   <div className="form__fields">
@@ -32,6 +33,7 @@ const FormLogin = ({ formHook }) => (
         },
       }}
     />
+    <FieldCheckbox name="remember_me" inputLabel="Remember Me" value="1" />
   </div>
 );
 
