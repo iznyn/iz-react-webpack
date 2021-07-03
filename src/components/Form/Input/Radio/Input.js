@@ -1,10 +1,10 @@
 /**
- * components/Form/Input/Radio.js
+ * components/Form/Input/Radio/Input.js
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Base from './Base';
+import Base from '../Base';
 
 const InputRadio = (props) => {
   const {
@@ -15,6 +15,7 @@ const InputRadio = (props) => {
     defaultValue,
     checked,
     validator,
+    onChange,
     ...others
   } = props;
 
@@ -25,19 +26,26 @@ const InputRadio = (props) => {
       style={style}
       defaultValue={defaultValue}
       validator={validator}
-      onRender={(field) => (
-        <label className="checkbox checkbox--radio">
-          <input
-            type="radio"
-            id={`input-${name}`}
-            checked={checked}
-            {...field}
-            {...others}
-          />
-          <div className="checkbox__indicator"></div>
-          <span className="checkbox__label">{label}</span>
-        </label>
-      )}
+      onRender={(field) => {
+        const { onChange: onFieldChange, fieldOthers } = field;
+        return (
+          <label className="checkbox checkbox--radio">
+            <input
+              type="radio"
+              id={`input-${name}`}
+              checked={checked}
+              onChange={(evt) => {
+                onChange(evt);
+                onFieldChange(evt.currentTarget.value);
+              }}
+              {...fieldOthers}
+              {...others}
+            />
+            <div className="checkbox__indicator"></div>
+            <span className="checkbox__label">{label}</span>
+          </label>
+        );
+      }}
     />
   );
 };
@@ -49,6 +57,7 @@ InputRadio.defaultProps = {
 InputRadio.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   style: PropTypes.oneOf(['default']),
   defaultValue: PropTypes.any,

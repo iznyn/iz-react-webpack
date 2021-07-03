@@ -29,7 +29,7 @@ const WithCrop = (props) => {
   const [preview, setPreview] = useState(defaultImage);
 
   // on select file
-  const onSelectFile = (evt) => {
+  const onSelectFile = (evt, validatorFn) => {
     if (evt.target.files && evt.target.files.length > 0) {
       const file = evt.target.files[0];
 
@@ -38,6 +38,7 @@ const WithCrop = (props) => {
         imageUrl = URL.createObjectURL(file);
       }
       setPreview(imageUrl);
+      validatorFn(evt.target.value);
 
       const reader = new FileReader();
       reader.addEventListener('load', () => {
@@ -60,6 +61,7 @@ const WithCrop = (props) => {
         style={style}
         validator={validator}
         onRender={(field) => {
+          const { onChange, ...fieldOthers } = field;
           const viewProps = {
             name,
             buttonLabel,
@@ -69,8 +71,10 @@ const WithCrop = (props) => {
               <input
                 id={`input-${name}`}
                 type="file"
-                onChange={onSelectFile}
-                {...field}
+                onChange={(evt) => {
+                  onSelectFile(evt, onChange);
+                }}
+                {...fieldOthers}
                 {...others}
               />
             ),

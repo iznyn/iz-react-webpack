@@ -13,6 +13,7 @@ import RequestScrollLoadMore from 'pages/Test/Request/ScrollLoadMore';
 import RequestPagination from 'pages/Test/Request/Pagination';
 import FormLogin from 'pages/Test/Form/Login';
 import FormRegister from 'pages/Test/Form/Register';
+import FormProfile from 'pages/Test/Form/Profile';
 
 export default [
   {
@@ -96,6 +97,13 @@ export default [
     name: 'TestFormRegister',
     path: '/form/register',
     component: FormRegister,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestFormProfile',
+    path: '/form/profile',
+    component: FormProfile,
     exact: true,
     requiresAuth: false,
   },

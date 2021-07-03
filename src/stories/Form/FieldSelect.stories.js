@@ -1,13 +1,13 @@
 import React from 'react';
 
-import FieldRadio from '../../components/Form/Field/Radio';
+import FieldSelect from '../../components/Form/Field/Select';
 
 export default {
-  title: 'Form/Field Radio',
-  component: FieldRadio,
+  title: 'Form/Field Select',
+  component: FieldSelect,
 };
 
-const Template = (args) => <FieldRadio {...args} />;
+const Template = (args) => <FieldSelect {...args} />;
 
 const options = [
   {

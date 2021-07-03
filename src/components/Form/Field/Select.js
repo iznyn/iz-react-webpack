@@ -5,16 +5,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Layout from './Layout';
-import InputRadio from '../Input/Radio';
+import InputSelect from '../Input/Select';
 
-const FieldRadio = (props) => {
-  const { name, data, defaultValue, inputProps, validator, ...others } = props;
+const FieldSelect = (props) => {
+  const {
+    name,
+    data,
+    defaultValue,
+    placeholder,
+    inputProps,
+    validator,
+    ...others
+  } = props;
 
   return (
     <Layout name={name} validator={validator} {...others}>
-      <InputRadio
+      <InputSelect
         name={name}
         data={data}
+        placeholder={placeholder}
         defaultValue={defaultValue}
         validator={validator}
         {...inputProps}
@@ -23,11 +32,11 @@ const FieldRadio = (props) => {
   );
 };
 
-FieldRadio.defaultProps = {
+FieldSelect.defaultProps = {
   style: 'block',
 };
 
-FieldRadio.propTypes = {
+FieldSelect.propTypes = {
   name: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
@@ -35,6 +44,7 @@ FieldRadio.propTypes = {
       value: PropTypes.any.isRequired,
     }),
   ).isRequired,
+  placeholder: PropTypes.string,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   style: PropTypes.oneOf(['block', 'inline']),
   label: PropTypes.string,
@@ -48,4 +58,4 @@ FieldRadio.propTypes = {
   }),
 };
 
-export default FieldRadio;
+export default FieldSelect;
