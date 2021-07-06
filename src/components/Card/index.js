@@ -29,7 +29,13 @@ const Card = (props) => {
           imagePath={thumbnail}
           action={thumbnailAction}
         />
-        <Info title={title} content={content} {...infoProps} />
+        <Info
+          title={title}
+          content={content}
+          link={link}
+          isLinkOutside={isLinkOutside}
+          {...infoProps}
+        />
       </div>
     </div>
   );

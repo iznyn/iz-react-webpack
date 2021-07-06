@@ -27,12 +27,14 @@ const Info = (props) => {
       const btnProps = readMore.btnProps || {};
 
       return (
-        <Button
-          label={label}
-          path={link}
-          isLinkOutside={isLinkOutside}
-          {...btnProps}
-        />
+        <div className="card__action">
+          <Button
+            label={label}
+            path={link}
+            isLinkOutside={isLinkOutside}
+            {...btnProps}
+          />
+        </div>
       );
     }
     return null;
