@@ -57,13 +57,13 @@ const Info = (props) => {
             </h3>
           </div>
         </div>
+        <div className="card__info__main">
+          {content && <div className="card__content">{content}</div>}
+          {meta && <>{meta}</>}
+        </div>
+        {getReadMore()}
+        {bottom && <div className="card__info__bottom">{bottom}</div>}
       </div>
-      <div className="card__info__main">
-        {content && <div className="card__content">{content}</div>}
-        {meta && <>{meta}</>}
-      </div>
-      {getReadMore()}
-      {bottom && <div className="card__info__bottom">{bottom}</div>}
     </div>
   );
 };
