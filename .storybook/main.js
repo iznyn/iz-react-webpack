@@ -21,6 +21,7 @@ module.exports = {
     config.resolve.alias['components'] = resolve('src/components');
     config.resolve.alias['hooks'] = resolve('src/hooks');
     config.resolve.alias['services'] = resolve('src/services');
+    config.resolve.alias['helpers'] = resolve('src/helpers');
 
     config.module.rules.push({
       test: /\.s[ac]ss$/i,
