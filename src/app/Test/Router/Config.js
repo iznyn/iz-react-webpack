@@ -14,6 +14,7 @@ import RequestPagination from 'pages/Test/Request/Pagination';
 import FormLogin from 'pages/Test/Form/Login';
 import FormRegister from 'pages/Test/Form/Register';
 import FormProfile from 'pages/Test/Form/Profile';
+import SliderBasic from 'pages/Test/Slider/Basic';
 
 export default [
   {
@@ -104,6 +105,13 @@ export default [
     name: 'TestFormProfile',
     path: '/form/profile',
     component: FormProfile,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestSliderBasic',
+    path: '/slider/basic',
+    component: SliderBasic,
     exact: true,
     requiresAuth: false,
   },

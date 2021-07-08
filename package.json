@@ -50,6 +50,7 @@
     "react-slick": "^0.28.1",
     "react-tooltip": "^4.2.21",
     "react-transition-group": "^4.4.2",
+    "slick-carousel": "^1.8.1",
     "spinkit": "^2.0.1"
   },
   "devDependencies": {

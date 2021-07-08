@@ -6,6 +6,9 @@ import ReactDOM from 'react-dom';
 
 import App from './app/index';
 
+// Import slick styles
+import 'slick-carousel/slick/slick.scss';
+import 'slick-carousel/slick/slick-theme.scss';
 // Import styles
 import './styles/styles.scss';
 

@@ -12,7 +12,7 @@ const Card = (props) => {
   const {
     className,
     thumbnail,
-    thumbnailAction,
+    thumbnailProps,
     title,
     content,
     infoProps,
@@ -27,7 +27,7 @@ const Card = (props) => {
           link={link}
           isLinkOutside={isLinkOutside}
           imagePath={thumbnail}
-          action={thumbnailAction}
+          {...thumbnailProps}
         />
         <Info
           title={title}
@@ -44,7 +44,7 @@ const Card = (props) => {
 Card.propTypes = {
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   thumbnail: PropTypes.string,
-  thumbnailAction: PropTypes.node,
+  thumbnailProps: PropTypes.object,
   title: PropTypes.node,
   content: PropTypes.node,
   infoProps: PropTypes.object,

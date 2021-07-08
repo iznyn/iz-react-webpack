@@ -1,28 +1,48 @@
 /**
- * components/Card/Thumbnail.js
+ * components/Thumbnail.js
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
-const Thumbnail = ({ imagePath, link, isLinkOutside, action }) => {
+import Image from './Image';
+
+const Thumbnail = React.forwardRef((props, ref) => {
+  const {
+    imagePath,
+    imageProps,
+    className,
+    link,
+    isLinkOutside,
+    action,
+    fixed,
+    ...others
+  } = props;
+
   //
   // Get content
   const getContent = () => (
-    <div className="thumbnail__main">
-      <div className="thumbnail__image">
-        <img src={imagePath} alt="" />
-      </div>
+    <>
+      <Image path={imagePath} {...imageProps} />
       {action && (
         <div className="thumbnail__action">
           <div className="thumbnail__action__inner">{action}</div>
         </div>
       )}
-    </div>
+    </>
   );
 
   return (
-    <div className="thumbnail">
+    <div
+      className={classNames(
+        'thumbnail',
+        { 'thumbnail--fixed': fixed },
+        className,
+      )}
+      ref={ref}
+      {...others}
+    >
       {link ? (
         <>
           {isLinkOutside ? (
@@ -38,13 +58,16 @@ const Thumbnail = ({ imagePath, link, isLinkOutside, action }) => {
       )}
     </div>
   );
-};
+});
 
 Thumbnail.propTypes = {
   imagePath: PropTypes.string.isRequired,
+  imageProps: PropTypes.object,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   link: PropTypes.string,
   isLinkOutside: PropTypes.bool,
   action: PropTypes.node,
+  fixed: PropTypes.bool,
 };
 
 export default Thumbnail;
