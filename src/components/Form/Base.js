@@ -32,22 +32,24 @@ const FormBase = (props) => {
             <Alert variant="danger">{error}</Alert>
           </div>
         )}
-        <div className="form__fields">{onRenderFields(formHook)}</div>
-        {onRenderSubmit ? (
-          <>{onRenderSubmit()}</>
-        ) : (
-          <div className="form__submit">
-            <div className="form__submit__main">
-              <Button
-                loading={loading}
-                handler={() => {}}
-                label={buttonSubmitLabel}
-                buttonProps={{ type: 'submit', ...buttonSubmitProps }}
-              />
+        <div className="form__main">
+          <div className="form__fields">{onRenderFields(formHook)}</div>
+          {onRenderSubmit ? (
+            <>{onRenderSubmit()}</>
+          ) : (
+            <div className="form__submit">
+              <div className="form__submit__main">
+                <Button
+                  loading={loading}
+                  handler={() => {}}
+                  label={buttonSubmitLabel}
+                  buttonProps={{ type: 'submit', ...buttonSubmitProps }}
+                />
+              </div>
+              {onRenderSubmitAfter && <>{onRenderSubmitAfter(formHook)}</>}
             </div>
-            {onRenderSubmitAfter && <>{onRenderSubmitAfter(formHook)}</>}
-          </div>
-        )}
+          )}
+        </div>
       </form>
     </div>
   );

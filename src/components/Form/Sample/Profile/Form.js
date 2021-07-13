@@ -17,7 +17,7 @@ const emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".
 const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
 const FormLogin = ({ formHook }) => (
-  <div className="form__fields">
+  <>
     <FieldText
       name="username"
       label="Username"
@@ -135,7 +135,7 @@ const FormLogin = ({ formHook }) => (
         },
       }}
     />
-  </div>
+  </>
 );
 
 FormLogin.propTypes = {

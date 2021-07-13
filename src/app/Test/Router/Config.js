@@ -14,6 +14,10 @@ import RequestPagination from 'pages/Test/Request/Pagination';
 import FormLogin from 'pages/Test/Form/Login';
 import FormRegister from 'pages/Test/Form/Register';
 import FormProfile from 'pages/Test/Form/Profile';
+import FormContact from 'pages/Test/Form/Contact';
+import FormForgotPassword from 'pages/Test/Form/ForgotPassword';
+import TestFormResetPassword from 'pages/Test/Form/ResetPassword';
+import TestFormNewsletter from 'pages/Test/Form/Newsletter';
 import SliderBasic from 'pages/Test/Slider/Basic';
 import HeaderDefault from 'pages/Test/Header/Default';
 import HeaderFixed from 'pages/Test/Header/Fixed';
@@ -107,6 +111,34 @@ export default [
     name: 'TestFormProfile',
     path: '/form/profile',
     component: FormProfile,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestFormContact',
+    path: '/form/contact',
+    component: FormContact,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestFormForgotPassword',
+    path: '/form/forgot-password',
+    component: FormForgotPassword,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestFormResetPassword',
+    path: '/form/reset-password',
+    component: TestFormResetPassword,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestFormNewsletter',
+    path: '/form/newsletter',
+    component: TestFormNewsletter,
     exact: true,
     requiresAuth: false,
   },

@@ -17,12 +17,12 @@ const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\-\_
 // eslint-disable-next-line no-useless-escape
 const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
-const FormLogin = ({ formHook }) => {
+const FormRegister = ({ formHook }) => {
   const { watch } = formHook;
   const currentPassword = watch('password', '');
 
   return (
-    <div className="form__fields">
+    <>
       <FieldText
         name="username"
         label="Username"
@@ -109,12 +109,12 @@ const FormLogin = ({ formHook }) => {
           },
         }}
       />
-    </div>
+    </>
   );
 };
 
-FormLogin.propTypes = {
+FormRegister.propTypes = {
   formHook: PropTypes.object,
 };
 
-export default FormLogin;
+export default FormRegister;

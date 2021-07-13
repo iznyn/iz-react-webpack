@@ -16,3 +16,6 @@ export const login = (data) => Http.post('login', data);
 
 // Register
 export const register = (data) => Http.post('register', data);
+
+// Contact
+export const contact = (data) => Http.post('contact', data);

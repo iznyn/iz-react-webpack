@@ -9,7 +9,7 @@ import FieldPassword from 'components/Form/Field/Password';
 import FieldCheckbox from 'components/Form/Field/Checkbox';
 
 const FormLogin = ({ formHook }) => (
-  <div className="form__fields">
+  <>
     <FieldText
       name="username"
       label="Username"
@@ -34,7 +34,7 @@ const FormLogin = ({ formHook }) => (
       }}
     />
     <FieldCheckbox name="remember_me" inputLabel="Remember Me" value="1" />
-  </div>
+  </>
 );
 
 FormLogin.propTypes = {

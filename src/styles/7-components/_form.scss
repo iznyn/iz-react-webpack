@@ -62,3 +62,17 @@
   color: #{$color-danger};
   font-size: 11px;
 }
+
+.form--inline {
+  .form__main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .form__fields {
+    width: 250px;
+  }
+  .form__submit {
+    margin-left: 10px;
+  }
+}
