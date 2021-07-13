@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Card from 'components/Card';
 
 export default {
-  title: 'Card',
+  title: 'Basic / Card',
   component: Card,
 };
 

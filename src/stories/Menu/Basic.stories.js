@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Menu from 'components/Menu';
 
 export default {
-  title: 'Menu',
+  title: 'Basic / Menu',
   component: Menu,
 };
 

@@ -5,7 +5,7 @@ import Menu from 'components/Menu';
 import Dropdown from 'components/Menu/Dropdown';
 
 export default {
-  title: 'Menu/Dropdown',
+  title: 'Basic / Menu Dropdown',
   component: Dropdown,
 };
 

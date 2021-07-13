@@ -64,6 +64,7 @@ Button.defaultProps = {
   variant: 'primary',
   size: 'md',
   radius: 'xs',
+  iconPosition: 'left',
 };
 
 Button.propTypes = {

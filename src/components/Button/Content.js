@@ -12,7 +12,7 @@ const ButtonContent = ({ label, icon, iconPosition, hideIcon }) => {
     <>
       {icon ? (
         <span className="button__content__icon">
-          {typeof icon === 'string' ? <img src={icon} alt="" /> : <icon />}
+          {typeof icon === 'string' ? <img src={icon} alt="" /> : <>{icon}</>}
         </span>
       ) : null}
     </>
