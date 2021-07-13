@@ -15,6 +15,8 @@ import FormLogin from 'pages/Test/Form/Login';
 import FormRegister from 'pages/Test/Form/Register';
 import FormProfile from 'pages/Test/Form/Profile';
 import SliderBasic from 'pages/Test/Slider/Basic';
+import HeaderDefault from 'pages/Test/Header/Default';
+import HeaderFixed from 'pages/Test/Header/Fixed';
 
 export default [
   {
@@ -112,6 +114,20 @@ export default [
     name: 'TestSliderBasic',
     path: '/slider/basic',
     component: SliderBasic,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestHeaderDefault',
+    path: '/header/default',
+    component: HeaderDefault,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestHeaderFixed',
+    path: '/header/fixed',
+    component: HeaderFixed,
     exact: true,
     requiresAuth: false,
   },
