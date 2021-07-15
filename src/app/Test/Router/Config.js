@@ -21,6 +21,7 @@ import TestFormNewsletter from 'pages/Test/Form/Newsletter';
 import SliderBasic from 'pages/Test/Slider/Basic';
 import HeaderDefault from 'pages/Test/Header/Default';
 import HeaderFixed from 'pages/Test/Header/Fixed';
+import TestThumbnailLazy from 'pages/Test/Thumbnail/Lazy';
 
 export default [
   {
@@ -160,6 +161,13 @@ export default [
     name: 'TestHeaderFixed',
     path: '/header/fixed',
     component: HeaderFixed,
+    exact: true,
+    requiresAuth: false,
+  },
+  {
+    name: 'TestThumbnailLazy',
+    path: '/thumbnail/lazy',
+    component: TestThumbnailLazy,
     exact: true,
     requiresAuth: false,
   },

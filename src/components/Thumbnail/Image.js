@@ -3,6 +3,9 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazyload';
+
+import LoaderImage from 'components/Loader/Image';
 
 const Image = (props) => {
   const { path, altText, width, height } = props;
@@ -16,7 +19,13 @@ const Image = (props) => {
 
   return (
     <div className="thumbnail__image" style={styles}>
-      <img src={path} alt={altText} />
+      <LazyLoad
+        height={height || 140}
+        once
+        placeholder={<LoaderImage style={{ height: height || 140 }} />}
+      >
+        <img src={path} alt={altText} />
+      </LazyLoad>
     </div>
   );
 };

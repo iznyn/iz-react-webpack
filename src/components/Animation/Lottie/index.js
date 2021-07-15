@@ -1,7 +1,7 @@
 /**
  * components/Lottie/index.js
  */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-unresolved
@@ -10,8 +10,10 @@ import lottie from 'lottie-web';
 const Lottie = (props) => {
   const { className, animationData, options } = props;
   const animEl = useRef(null);
-  // eslint-disable-next-line no-unused-vars
-  const [anim, setAnim] = useState(null);
+
+  const onAnimLoaded = () => {
+    console.log('Anim Loaded');
+  };
 
   useEffect(() => {
     const animOptions = {
@@ -25,7 +27,12 @@ const Lottie = (props) => {
       },
       ...options,
     };
-    setAnim(lottie.loadAnimation(animOptions));
+    const anim = lottie.loadAnimation(animOptions);
+    anim.addEventListener('loaded_images', onAnimLoaded);
+
+    return function cleanup() {
+      anim.removeEventListener('loaded_images', onAnimLoaded);
+    };
   }, []);
 
   return <div ref={animEl} className={classNames('lottie', className)} />;
