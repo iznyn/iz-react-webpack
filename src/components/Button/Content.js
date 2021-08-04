@@ -32,7 +32,7 @@ ButtonContent.defaultProps = {
 };
 
 ButtonContent.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.node,
   iconPosition: PropTypes.oneOf(['left', 'right']),
   icon: PropTypes.oneOfType([
     PropTypes.string,

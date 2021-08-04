@@ -11,6 +11,14 @@
       font-weight: 700;
     }
   }
+
+  &__info {
+    margin-top: 8px;
+    color: #{$color-dark-grey};
+    font-size: 12px;
+    line-height: 16px;
+    font-style: italic;
+  }
 }
 
 .form__input {

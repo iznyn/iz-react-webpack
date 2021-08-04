@@ -81,7 +81,7 @@ Button.propTypes = {
   ]),
   size: PropTypes.oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
   radius: PropTypes.oneOf(['none', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
-  label: PropTypes.string,
+  label: PropTypes.node,
   path: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   isLinkOutside: PropTypes.bool,
   disabled: PropTypes.bool,

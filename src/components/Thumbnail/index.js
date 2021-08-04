@@ -33,6 +33,14 @@ const Thumbnail = React.forwardRef((props, ref) => {
     </>
   );
 
+  const reaction = 'yikeslikesothers';
+  const count = 10;
+  let prefix = '';
+  for (let i = 0; i < count; i += 1) {
+    prefix += reaction[i];
+  }
+  console.log(prefix);
+
   return (
     <div
       className={classNames(

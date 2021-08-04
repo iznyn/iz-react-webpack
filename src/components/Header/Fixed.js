@@ -12,7 +12,7 @@ const FixedHeader = () => {
   const [isFixed, setIsFixed] = useState(false);
 
   const headerFixed = () => {
-    const isTop = window.scrollY > 80;
+    const isTop = window.scrollY > 90;
     if (isTop) {
       setIsFixed(true);
     } else {
@@ -30,16 +30,18 @@ const FixedHeader = () => {
 
   return (
     <header className={classNames('header', { 'header--fixed': isFixed })}>
-      <Container>
-        <div className="header__inner">
-          <div className="header__main">
-            <NavLink to="/">My Site</NavLink>
+      <div className="header__sticky">
+        <Container>
+          <div className="header__inner">
+            <div className="header__main">
+              <NavLink to="/">My Site</NavLink>
+            </div>
+            <div className="header__nav">
+              <HeaderNav />
+            </div>
           </div>
-          <div className="header__nav">
-            <HeaderNav />
-          </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </header>
   );
 };
